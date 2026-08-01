@@ -9,6 +9,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import authRoutes from './routes/authRoutes.js';
 import notesRoutes from './routes/notesRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -24,6 +25,9 @@ app.use(authRoutes);
 
 // Маршрути нотаток
 app.use(notesRoutes);
+
+// Додаємо раути користувача
+app.use(userRoutes);
 
 // 404 — якщо маршрут не знайдено
 app.use(notFoundHandler);
